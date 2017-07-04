@@ -1,0 +1,51 @@
+body {
+    background-color: #eee;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.imagem-inicial {
+    background-image: url('../imagens/painel.jpg');
+}
+
+.jumbotron h2 {
+    color: #888;
+}
+
+.jumbotron {
+    background-color:rgba(240, 240, 240, 0.8);
+}
+
+.texto-slogan {
+    color: #888;
+}
+
+.conteudo-principal p{
+    color: #888;
+}
+
+.thumbnail {
+    background-color: #fff;
+}
+
+.thumbnail h3 {
+    color: #888;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #5cb85c;
+}
+
+.painel-login {
+    background-color:rgba(255, 255, 255, 0.8);
+    margin-top: 5%;
+    padding: 10px;
+}
+
+.painel-cadastro {
+    background-color:rgba(255, 255, 255, 0.8);
+    margin-top: 5%;
+    padding: 10px;
+}
