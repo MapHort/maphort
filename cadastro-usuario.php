@@ -38,7 +38,7 @@
         }
 
         // buscando pelo usuário que está tentando logar
-        $sql = "insert into (sexo, rua, bairro, cep, numero, telefone, nome, senha, `nickname`) USUARIO values(?,?,?,?,?,?,?,?,?)";
+        $sql = "insert into USUARIO (sexo, rua, bairro, cep, numero, telefone, nome, senha, `nickname`) values(?,?,?,?,?,?,?,?,?)";
 
         $stmt = $connection->prepare($sql);
         $stmt->bindParam(1, $_POST["sexo"]);
@@ -56,6 +56,9 @@
         if($stmt->errorCode() != "00000")
         {
             echo 'Erro: ' . $stmt->errorCode();
+        }
+        else{
+            header('Location: login.php');
         }
         
     }
