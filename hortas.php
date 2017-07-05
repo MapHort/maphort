@@ -57,6 +57,7 @@
                                 '<label>Categoria: </label> ' . $value->categoria . '</br>' .
                                 '<label>Tamanho: </label> ' . $value->tamanho . '</br>' .
                                 '<label>Telefone: </label> (31) ' . $value->telefone . '</br>' .
+								'<label>Proprietário: </label> ' . $value->proprietario . '</br>' .
                             '</div>' .
                         '</div>' .
                     '</div>';

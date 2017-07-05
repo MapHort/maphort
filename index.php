@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="../imagens/horta-borges-03.jpg" alt="...">
+                    <img src="imagens/horta-borges-03.jpg" alt="...">
                     <div class="caption">
                         <h3>Horta Comunitária do Borges</h3>
                         <p>...</p>
@@ -58,10 +58,10 @@
 
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="../imagens/horta-borges-03.jpg" alt="...">
+                    <img src="imagens/horta-borges-03.jpg" alt="...">
                     <div class="caption">
                         <h3>Horta Comunitária do Borges</h3>
-                        <p>...</p>
+                        <p>açsdlkfjaçslkdf</p>
                         <p><a href="#" class="btn btn-sm btn-success" role="button">Leia mais...</a>
                     </div>
                 </div>
@@ -69,10 +69,10 @@
 
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="../imagens/horta-borges-03.jpg" alt="...">
+                    <img src="imagens/horta-borges-03.jpg" alt="...">
                     <div class="caption">
                         <h3>Horta Comunitária do Borges</h3>
-                        <p>...</p>
+                        <p>asdfasdf</p>
                         <p><a href="#" class="btn btn-sm btn-success" role="button">Leia mais...</a>
                     </div>
                 </div>
