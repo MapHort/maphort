@@ -7,6 +7,61 @@
         header('Location: login.php');
         exit();
     }
+
+    $listaHortas = buscarHortas();
+
+    /**
+    * Método que busca as hortas cadastradas no sistema
+    */
+    function buscarHortas() {
+        try
+        {
+            $connection = new PDO("mysql:host=localhost;dbname=maphort", "root", "");
+            $connection->exec("set names utf8"); // Permite o armazenamento/buscar de informações com caracteres especiais
+        }
+        catch(PDOException $e)
+        {
+            echo 'Falha de conexão' . $e->getMessage();
+            exit();
+        }
+
+        // buscando pelo usuário que está tentando logar
+        $sql = "select * from HORTA";
+
+        $stmt = $connection->prepare($sql);
+        $listaHortasEncontradas = array();
+        if($stmt->execute())
+        {
+            while($horta = $stmt->fetch( PDO::FETCH_OBJ ))
+            {
+                if($horta != null) {
+                    array_push($listaHortasEncontradas, $horta);
+                }
+            }
+            return $listaHortasEncontradas;
+        }
+        else
+        {
+            echo 'Usuário não encontrado';
+        }
+    }
+
+    function exibirHortas($lista)
+    {
+        foreach ($lista as $key => $value) {
+            echo    '<div class="col-sm-6 col-md-4">' .
+                        '<div class="thumbnail">' .
+                            '<img src="imagens/horta-borges-03.jpg" alt="...">' .
+                            '<div class="caption">' .
+                                '<h3>' . $value->nome . '</h3>' .
+                                '<label>Categoria: </label> ' . $value->categoria . '</br>' .
+                                '<label>Tamanho: </label> ' . $value->tamanho . '</br>' .
+                                '<label>Telefone: </label> (31) ' . $value->telefone . '</br>' .
+                            '</div>' .
+                        '</div>' .
+                    '</div>';
+        }
+    }
 ?>
 
 <!Doctype html>
@@ -39,57 +94,11 @@
         </div>
     </div>
 
-    <div class="col-md-12 text-center texto-slogan">
-        
-    </div>
-
     <div class="container conteudo-principal">
-        <div class="row">
-            <div class="col-md-12 texto-introdutorio">
-                <p>
-                    O MapHort fornece todos os dados da horta a ser pesquisada, tal como Endereço, Plantas hortículas disponíveis, proprietário,
-                    telefone e outros. Para receber informações de novas hortas na região, novas plantas hortículas disponíveis
-                    e demais atualizações é necessário o cadastro em nosso site.
-                </p>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="../imagens/horta-borges-03.jpg" alt="...">
-                    <div class="caption">
-                        <h3>Horta Comunitária do Borges</h3>
-                        <p>...</p>
-                        <p><a href="#" class="btn btn-sm btn-success" role="button">Leia mais...</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="../imagens/horta-borges-03.jpg" alt="...">
-                    <div class="caption">
-                        <h3>Horta Comunitária do Borges</h3>
-                        <p>...</p>
-                        <p><a href="#" class="btn btn-sm btn-success" role="button">Leia mais...</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="../imagens/horta-borges-03.jpg" alt="...">
-                    <div class="caption">
-                        <h3>Horta Comunitária do Borges</h3>
-                        <p>...</p>
-                        <p><a href="#" class="btn btn-sm btn-success" role="button">Leia mais...</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+        <?php
+            exibirHortas(buscarHortas());
+        ?>
 
     </div>
 
